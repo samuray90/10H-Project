@@ -5,19 +5,41 @@ import "./index.css";
 function BookList() {
   return (
     <section className="booklist">
-      <Book />
+      <Book
+        img={firstBook.img}
+        title={firstBook.title.toUpperCase()}
+        author={firstBook.author}
+      />
+      {/* <Book {...firstBook} />  it works fine but has the same components*/}
+      <Book
+        img={secondBook.img}
+        title={secondBook.title.toUpperCase()}
+        author={secondBook.author}
+      />
     </section>
   );
 }
 
-const Book = () => {
+const firstBook = {
+  img:
+    "https://images-na.ssl-images-amazon.com/images/I/91VcSyl-0DL._AC_UL200_SR200,200_.jpg",
+  title: "ninsoarea",
+  author: "Ion reanga",
+};
+const secondBook = {
+  img:
+    "https://images-na.ssl-images-amazon.com/images/I/610O4MLOT2L._AC_UL200_SR200,200_.jpg",
+  title: "second title",
+  author: "Eminescu",
+};
+
+const Book = ({ img, title, author }) => {
+  // const { img, title, author } = props;
   return (
     <article className="book">
-      <img
-        src="https://images-na.ssl-images-amazon.com/images/I/91VcSyl-0DL._AC_UL200_SR200,200_.jpg"
-        alt=""
-      />
-      <h3>Ion Creanga</h3>
+      <img src={img} alt="" />
+      <h3>{title}</h3>
+      <h4>{author}</h4>
     </article>
   );
 };
